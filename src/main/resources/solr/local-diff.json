@@ -1,0 +1,26 @@
+{
+  "types" : [
+    {
+      "name" : "user",
+          "on_create" : {
+            "__groups_mv" : [ "[{_prefix_}{!COD_AOO}@group,{_prefix_}{!COD_ENTE}@group,everyone@group]", "[{_prefix_}{!COD_ENTE}@group,everyone@group]", "everyone@group" ]
+          },
+          "hooks" : {
+            "__groups_mv" : null
+          },
+          "on_update" : {
+            "__groups_mv" : "{groups}"
+          },
+          "aliases" : {
+            "groups" : "[{__groups_mv/(.+)/$1,}{roles/(.+)/$1,:}]"
+          }
+      },
+    {
+      "name" : "documento",
+      "hooks" : {
+        "AGGIORNAMENTO_PROTO_DT" : "eval(if (document.D_ANNULL_PG || document.NUM_PG) NOW )",
+        "CORRETTO_PG" : "eval(if (!document.D_ANNULL_PG && document.NUM_PG && $(document.id).NUM_PG) 'SI')"
+      }
+    }
+  ]
+}

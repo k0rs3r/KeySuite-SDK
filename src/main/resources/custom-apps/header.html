@@ -1,0 +1,232 @@
+<div id="ks-header-cont">
+    <link rel="shortcut icon" href="/resources/images/favicon.ico" />
+    <nav id="ks-header" class="navbar navbar-default navbar-fixed-top" style="border-bottom: 2px solid #02918D; z-index: 10001;">
+
+        <div id="menu-id" style="display: none;" value="e" ></div>
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" style="padding: 0px;"  href="/AppDoc">
+                    <img id="logoKS" src="/AppDoc/images/KeySuite-LOGO.png" style="height: 100%; padding: 15px width: auto;" alt="Dispute Bills"/>
+                </a>
+            </div>
+
+
+            <div id="main-menu" aria-expanded="false" style="height: 1px;">
+                <ul id ="appnav" class="nav navbar-nav navbar-left"></ul>
+
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" >
+                        <button  data-toggle="modal" data-target="#modalInfoUtente" class="btn btn-link" style="background:#cfc; padding: 4px 10px 4px 10px;">
+                            <i class="glyphicon glyphicon-user"></i><span id="logge-user">&nbsp;pippo&nbsp;</span><div><strong id="logged-aoo-id"></strong></div>
+                        </button>
+                    </li>
+
+                    <li id="logoutButton">
+                        <a href="${authPath}/logout">
+                            <i class="glyphicon glyphicon-off"></i><span>&nbsp;Esci&nbsp;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="modalInfoUtente" tabindex="-1" role="dialog" aria-labelledby="infoUtenteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document" style="margin-top: 70px">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 5px 10px 5px 10px; border-bottom-color: #047778!important; color: #047778!important;">
+                    <h5 class="modal-title" id="infoUtenteModalLabel"><i class="glyphicon glyphicon-user"></i><span><strong>&nbsp;&nbsp;Informazioni Utente</strong></span></h5>
+                </div>
+                <div class="modal-body" style="max-height:70vh; overflow:auto;" id="corpo-info-utente">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div><strong>Username</strong></div>
+                                <div id="iu-username" style="clear: both;"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div><strong>Nominativo</strong></div>
+                                <div id=iu-nominativo style="clear: both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div><strong>E-mail</strong></div>
+                                <div id="iu-email" style="clear: both;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div><a class="btn btn-link" data-toggle="collapse" href="#collapseDatiS" role="button" aria-expanded="false" aria-controls="collapseDatiS"><strong>Dati Sessione</strong></a></div>
+                        <div id="collapseDatiS" class="col-md-12 collapse">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div><strong>Ente</strong></div>
+                                        <div id="iu-ente" style="clear: both;"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div><strong>AOO</strong></div>
+                                        <div id="iu-aoo-selezionato" style="clear: both;"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <label><a class="btn btn-link" data-toggle="collapse" href="#collapseUffici" role="button" aria-expanded="false" aria-controls="collapseUffici"><strong>Uffici</strong></a></label>
+                                        <div id="collapseUffici" class="col-md-12 collapse">
+                                            <div class="col-md-12">
+                                                <ul id="iu-uffici"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <label><a class="btn btn-link" data-toggle="collapse" href="#collapseRuoli" role="button" aria-expanded="false" aria-controls="collapseRuoli"><strong>Ruoli</strong></a></label>
+                                        <div id="collapseRuoli" class="col-md-12 collapse">
+                                            <div class="col-md-12">
+                                                <ul id="iu-ruoli"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="container-altre-aoo" class="row">
+                        <div>
+                            <div><a class="btn btn-link" data-toggle="collapse" href="#collapseAoo" role="button" aria-expanded="false" aria-controls="collapseAoo"><strong>Altre AOO</strong></a></div>
+                            <div id="collapseAoo" class="col-md-12 collapse">
+                                <div class="col-md-12">
+                                    <ul id="iu-aoo"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer" style="padding: 4px; border-top-color: #047778!important;">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
+                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirm_change_aoo" tabindex="-1" role="dialog" aria-labelledby="info_confirm_change_aoo_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document" style="margin-top: 70px">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 5px 10px 5px 10px; border-bottom-color: #047778!important; color: #047778!important;">
+                    <h5 class="modal-title" id="info_confirm_change_aoo_label"><i class="glyphicon glyphicon-user"></i><span><strong>&nbsp;&nbsp;Conferma cambio Aoo</strong></span></h5>
+                </div>
+                <div class="modal-body" style="max-height:70vh; overflow:auto;">
+
+                    Si vuole veramente cambiare la AOO corrente con <span id="new_aoo_to_shitch"></span>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="bt_confirm_change">SI</button>
+                    <button type="button" data-dismiss="modal" class="btn">NO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            if(disableLogout && disableLogout == "true"){
+                $("#logoutButton").css("display", "none");
+            }
+            //console.log("caricata la navbar");
+
+            $.get("${authPath}/user/info", function(res){
+                //console.log("chiamata ok");
+                //console.log(res);
+                var currentAoo = res.currentAoo["desc"] + " (" + res.currentAoo["cod"] + ")";
+
+                $("#logged-aoo-id").html(currentAoo);
+
+
+
+                $("#iu-username").html(res.username);
+                $("#iu-nominativo").html(res.fullname);
+                $("#iu-email").html(res.email);
+                $("#iu-ente").html(res.ente["desc"] + " ("+res.ente["cod"]+")");
+                $("#iu-aoo-selezionato").html(currentAoo);
+
+                var allAoo = res.allAoo;
+                var allAooK = Object.keys(allAoo);
+                var allAooArr = [];
+                var allAooString ="";
+                if(allAooK && allAooK.length>1){
+                    allAooK.forEach(function(aooK){
+                        var aooToAddStr = "";
+                        var aooToAdd = allAoo[aooK] + " ("+aooK+")";
+                        if(aooToAdd != currentAoo){
+                            aooToAddStr = "<li><button data-dismiss='modalInfoUtente' type='button' class='btn btn-link' onClick='confirmChangeAoo(\""+aooK+"\",\""+ aooToAdd+" \" )'>"+aooToAdd+"</button></li>";
+                        }
+                        allAooString += aooToAddStr;
+                    });
+                }else{
+                    $("#container-altre-aoo").css("display", "none");
+                }
+
+                $("#iu-aoo").html(allAooString);
+                var structureGroups = res.structureGroup;
+                var structureGroupsK = Object.keys(structureGroups);
+                var uffici = "";
+                structureGroupsK.forEach(function(ufficio){
+                    uffici +="<li>"+structureGroups[ufficio]["GROUP_NAME"]+" ("+structureGroups[ufficio]["GROUP_ID"]+")"+"</li>";
+                });
+
+                $("#iu-uffici").html(uffici);
+                var ruoli = res.role;
+                var ruolyK = Object.keys(ruoli);
+                var ruoliArr = [];
+                var ruoliString="";
+                ruolyK.forEach(function(ruolo){
+                    ruoliString +="<li>"+ruolo + " ("+ruoli[ruolo]+")"+"</li>";
+                });
+                $("#iu-ruoli").html(ruoliString);
+            });
+
+        });
+
+        function confirmChangeAoo(aooK, aooToAdd){
+            $('#new_aoo_to_shitch').html(aooToAdd);
+            $('#modalInfoUtente')
+                .modal('hide')
+                .on('hidden.bs.modal', function (e) {
+                    $('#confirm_change_aoo')
+                        .modal('show')
+                        .on('click', '#bt_confirm_change', function(e) {
+                            window.location.href = "${authPath}/switchAoo?COD_AOO="+aooK;
+                        });
+                    $(this).off('hidden.bs.modal');
+                });
+        }
+
+
+    </script>
+</div>

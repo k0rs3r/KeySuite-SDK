@@ -1,0 +1,306 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://soap.qrbox.intesigroup.com" xmlns:ax27="http://response.soap.qrbox.intesigroup.com/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax23="http://request.soap.qrbox.intesigroup.com/xsd" xmlns:ax24="http://dataobject.qrbox.intesigroup.com/xsd" xmlns:ax21="http://exception.core.qrbox.intesigroup.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://soap.qrbox.intesigroup.com">
+   <wsdl:documentation>handler</wsdl:documentation>
+   <wsdl:types>
+      <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dataobject.qrbox.intesigroup.com/xsd">
+         <xs:complexType name="KeyValueData">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://response.soap.qrbox.intesigroup.com/xsd">
+         <xs:complexType name="AddStampAndSignResponse">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="attachment" nillable="true" type="xs:base64Binary"/>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns:ax25="http://dataobject.qrbox.intesigroup.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://request.soap.qrbox.intesigroup.com/xsd">
+         <xs:import namespace="http://dataobject.qrbox.intesigroup.com/xsd"/>
+         <xs:complexType name="AddStampAndSignRequest">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="action" nillable="true" type="xs:int"/>
+               <xs:element minOccurs="0" name="contentID" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="correctionLevel" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="document" nillable="true" type="xs:base64Binary"/>
+               <xs:element minOccurs="0" name="exDate" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="isShortnedUrl" nillable="true" type="xs:boolean"/>
+               <xs:element minOccurs="0" name="locale" nillable="true" type="xs:string"/>
+               <xs:element maxOccurs="unbounded" minOccurs="0" name="metadata" nillable="true" type="ax25:KeyValueData"/>
+               <xs:element minOccurs="0" name="otp" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="pin" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="positionTag" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="positionX" nillable="true" type="xs:int"/>
+               <xs:element minOccurs="0" name="positionY" nillable="true" type="xs:int"/>
+               <xs:element minOccurs="0" name="qrSize" nillable="true" type="xs:int"/>
+               <xs:element minOccurs="0" name="signer" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="stampPage" nillable="true" type="xs:int"/>
+               <xs:element minOccurs="0" name="templateName" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="title" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="typeDoc" nillable="true" type="xs:string"/>
+               <xs:element minOccurs="0" name="url" nillable="true" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns:ax28="http://response.soap.qrbox.intesigroup.com/xsd" xmlns:ax26="http://request.soap.qrbox.intesigroup.com/xsd" xmlns:ax22="http://exception.core.qrbox.intesigroup.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://soap.qrbox.intesigroup.com">
+         <xs:import namespace="http://exception.core.qrbox.intesigroup.com/xsd"/>
+         <xs:import namespace="http://request.soap.qrbox.intesigroup.com/xsd"/>
+         <xs:import namespace="http://response.soap.qrbox.intesigroup.com/xsd"/>
+         <xs:element name="getPkBoxClientVersion">
+            <xs:complexType>
+               <xs:sequence/>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="getPkBoxClientVersionResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="handlerQRBException">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="QRBException" nillable="true" type="ax21:QRBException"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="AddStampAndSign">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="request" nillable="true" type="ax26:AddStampAndSignRequest"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="AddStampAndSignResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="return" nillable="true" type="ax27:AddStampAndSignResponse"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="flushCache">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="cache" type="xs:int"/>
+                  <xs:element minOccurs="0" name="key" nillable="true" type="xs:string"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="getVersion">
+            <xs:complexType>
+               <xs:sequence/>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="getVersionResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:schema>
+      <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://exception.core.qrbox.intesigroup.com/xsd">
+         <xs:complexType name="QRBException">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="errorCode" type="xs:int"/>
+               <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="AddStampAndSignRequest">
+      <wsdl:part name="parameters" element="ns:AddStampAndSign"/>
+   </wsdl:message>
+   <wsdl:message name="AddStampAndSignResponse">
+      <wsdl:part name="parameters" element="ns:AddStampAndSignResponse"/>
+   </wsdl:message>
+   <wsdl:message name="handlerQRBException">
+      <wsdl:part name="parameters" element="ns:handlerQRBException"/>
+   </wsdl:message>
+   <wsdl:message name="getPkBoxClientVersionRequest">
+      <wsdl:part name="parameters" element="ns:getPkBoxClientVersion"/>
+   </wsdl:message>
+   <wsdl:message name="getPkBoxClientVersionResponse">
+      <wsdl:part name="parameters" element="ns:getPkBoxClientVersionResponse"/>
+   </wsdl:message>
+   <wsdl:message name="flushCacheRequest">
+      <wsdl:part name="parameters" element="ns:flushCache"/>
+   </wsdl:message>
+   <wsdl:message name="getVersionRequest">
+      <wsdl:part name="parameters" element="ns:getVersion"/>
+   </wsdl:message>
+   <wsdl:message name="getVersionResponse">
+      <wsdl:part name="parameters" element="ns:getVersionResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="handlerPortType">
+      <wsdl:operation name="AddStampAndSign">
+         <wsdl:input message="ns:AddStampAndSignRequest" wsaw:Action="urn:AddStampAndSign"/>
+         <wsdl:output message="ns:AddStampAndSignResponse" wsaw:Action="urn:AddStampAndSignResponse"/>
+         <wsdl:fault message="ns:handlerQRBException" name="handlerQRBException" wsaw:Action="urn:AddStampAndSignhandlerQRBException"/>
+      </wsdl:operation>
+      <wsdl:operation name="getPkBoxClientVersion">
+         <wsdl:input message="ns:getPkBoxClientVersionRequest" wsaw:Action="urn:getPkBoxClientVersion"/>
+         <wsdl:output message="ns:getPkBoxClientVersionResponse" wsaw:Action="urn:getPkBoxClientVersionResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="flushCache">
+         <wsdl:input message="ns:flushCacheRequest" wsaw:Action="urn:flushCache"/>
+         <wsdl:output message="ns:null" wsaw:Action="urn:flushCacheResponse"/>
+         <wsdl:fault message="ns:handlerQRBException" name="handlerQRBException" wsaw:Action="urn:flushCachehandlerQRBException"/>
+      </wsdl:operation>
+      <wsdl:operation name="getVersion">
+         <wsdl:input message="ns:getVersionRequest" wsaw:Action="urn:getVersion"/>
+         <wsdl:output message="ns:getVersionResponse" wsaw:Action="urn:getVersionResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="handlerSoap11Binding" type="ns:handlerPortType">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+      <wsdl:operation name="AddStampAndSign">
+         <soap:operation soapAction="urn:AddStampAndSign" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="handlerQRBException">
+            <soap:fault use="literal" name="handlerQRBException"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getPkBoxClientVersion">
+         <soap:operation soapAction="urn:getPkBoxClientVersion" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="flushCache">
+         <soap:operation soapAction="urn:flushCache" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="handlerQRBException">
+            <soap:fault use="literal" name="handlerQRBException"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getVersion">
+         <soap:operation soapAction="urn:getVersion" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="handlerSoap12Binding" type="ns:handlerPortType">
+      <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+      <wsdl:operation name="AddStampAndSign">
+         <soap12:operation soapAction="urn:AddStampAndSign" style="document"/>
+         <wsdl:input>
+            <soap12:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="handlerQRBException">
+            <soap12:fault use="literal" name="handlerQRBException"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getPkBoxClientVersion">
+         <soap12:operation soapAction="urn:getPkBoxClientVersion" style="document"/>
+         <wsdl:input>
+            <soap12:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="flushCache">
+         <soap12:operation soapAction="urn:flushCache" style="document"/>
+         <wsdl:input>
+            <soap12:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal"/>
+         </wsdl:output>
+         <wsdl:fault name="handlerQRBException">
+            <soap12:fault use="literal" name="handlerQRBException"/>
+         </wsdl:fault>
+      </wsdl:operation>
+      <wsdl:operation name="getVersion">
+         <soap12:operation soapAction="urn:getVersion" style="document"/>
+         <wsdl:input>
+            <soap12:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="handlerHttpBinding" type="ns:handlerPortType">
+      <http:binding verb="POST"/>
+      <wsdl:operation name="AddStampAndSign">
+         <http:operation location="AddStampAndSign"/>
+         <wsdl:input>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:input>
+         <wsdl:output>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="getPkBoxClientVersion">
+         <http:operation location="getPkBoxClientVersion"/>
+         <wsdl:input>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:input>
+         <wsdl:output>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="flushCache">
+         <http:operation location="flushCache"/>
+         <wsdl:input>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:input>
+         <wsdl:output>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="getVersion">
+         <http:operation location="getVersion"/>
+         <wsdl:input>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:input>
+         <wsdl:output>
+            <mime:content type="application/xml" part="parameters"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="handler">
+      <wsdl:port name="handlerHttpsSoap11Endpoint" binding="ns:handlerSoap11Binding">
+         <soap:address location="https://192.168.0.58:8443/qrbox-server/services/handler.handlerHttpsSoap11Endpoint/"/>
+      </wsdl:port>
+      <wsdl:port name="handlerHttpSoap11Endpoint" binding="ns:handlerSoap11Binding">
+         <soap:address location="http://192.168.0.58:8080/qrbox-server/services/handler.handlerHttpSoap11Endpoint/"/>
+      </wsdl:port>
+      <wsdl:port name="handlerHttpsSoap12Endpoint" binding="ns:handlerSoap12Binding">
+         <soap12:address location="https://192.168.0.58:8443/qrbox-server/services/handler.handlerHttpsSoap12Endpoint/"/>
+      </wsdl:port>
+      <wsdl:port name="handlerHttpSoap12Endpoint" binding="ns:handlerSoap12Binding">
+         <soap12:address location="http://192.168.0.58:8080/qrbox-server/services/handler.handlerHttpSoap12Endpoint/"/>
+      </wsdl:port>
+      <wsdl:port name="handlerHttpEndpoint" binding="ns:handlerHttpBinding">
+         <http:address location="http://192.168.0.58:8080/qrbox-server/services/handler.handlerHttpEndpoint/"/>
+      </wsdl:port>
+      <wsdl:port name="handlerHttpsEndpoint" binding="ns:handlerHttpBinding">
+         <http:address location="https://192.168.0.58:8443/qrbox-server/services/handler.handlerHttpsEndpoint/"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

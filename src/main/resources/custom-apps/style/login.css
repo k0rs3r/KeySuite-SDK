@@ -1,0 +1,45 @@
+<style type="text/css">
+html, body, .container-table {
+    height: 100%;
+}
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+  #main{
+    margin-top: 45px;
+  }
+  #wrapper{
+  	margin-bottom:50px;
+  }
+  .well{
+  	margin-top: 25%;
+    border: 1px solid #cccccc;
+    box-shadow: #cccccc 4px 4px 4px 0px!important;
+    background-color: #f9f9f9!important;
+  }
+  .well input{
+  	margin: 5px 0px;
+  }
+  .navbar-default{
+  	background: unset!important;
+  	background-color: white!important;
+  	color: #555555;
+  }
+  .header-title{
+    line-height: 45px;
+    font-weight: bold;
+    padding-left: 10px;
+    color:#02918D;
+  }
+
+  .brand-right{
+    line-height: 45px;
+    font-weight: bold;
+    float: right;
+  }
+</style>

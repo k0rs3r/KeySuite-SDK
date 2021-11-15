@@ -1,0 +1,45 @@
+import it.kdm.doctoolkit.utils.Utils;
+import it.kdm.doctoolkit.model.Documento;
+
+path = obj.properties.PATH;
+
+if (path.charAt(0) == '\\') {
+  path = path.substring(1);
+}
+
+idx = path.indexOf('\\');
+if (idx == -1) {
+  //ERROR!
+}
+
+sede = path.substring(0, idx);
+path = path.substring(idx);
+
+if (path.charAt(0) == '\\') {
+  path = path.substring(1);
+}
+
+idx = path.indexOf('\\');
+if (idx == -1) {
+  // Solo Ente!
+  path = "";
+} else {
+  path = path.substring(idx);
+}
+
+path = "\\" + profile + path;
+
+if (obj.properties.containsKey("ANNO_FASCICOLO")) {
+  path = path.replace(obj.name, obj.properties.get("ANNO_FASCICOLO") + '\\' + obj.name);
+}
+
+
+obj.setParentPath(Utils.getPathParent(path));
+if (obj instanceof Documento) {
+  obj.setFullName(Utils.getPathName(path));
+} else {
+  obj.setName(Utils.getPathName(path));
+}
+obj.setShare(profile);
+
+return obj;

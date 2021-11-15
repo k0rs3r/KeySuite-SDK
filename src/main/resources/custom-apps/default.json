@@ -1,0 +1,306 @@
+{
+  "AppDoc": {
+    "icon": "glyphicon-file margin-right-5px",
+    "link": "/AppDoc",
+    "title": "Documentale",
+    "useJtree": "true",
+    "background-color": "",
+    "textColor": "",
+    "roles": [
+      "everyone"
+    ],
+    "sections": [
+      {
+        "name": "Documentale",
+        "url": "",
+        "tooltip": "Documentale",
+        "roles": [
+          "everyone"
+        ],
+        "menuItems": [
+          {
+            "label": "I miei documenti",
+            "icon": "glyphicon-th-list",
+            "tooltip": "I miei documenti",
+            "url": "/AppDoc/select?q=created_by:admin@user&sort=created_on%20desc&fq=type:documento&title=label.menusx.mydocs",
+            "roles": [
+              "everyone"
+            ],
+            "buttons": [
+              {
+                "icon": "glyphicon-search",
+                "tooltip": "new",
+                "url": "/AppDoc/advancedSearchForm?created_by=admin",
+                "roles": [
+                  "everyone"
+                ]
+              },
+              {
+                "icon": "glyphicon-plus",
+                "tooltip": "edit",
+                "url": "/AppDoc/createDocumentFromAOO?aoo=ANM_AOO",
+                "roles": [
+                  "everyone"
+                ]
+              }
+            ],
+            "attributes": {
+              "class": "jClass",
+              "target-data": "page-content",
+              "update-data": "true"
+            }
+          },
+          {
+            "label": "Ricerca documenti",
+            "icon": "glyphicon-search",
+            "tooltip": "Ricerca documenti",
+            "url": "/AppDoc/advancedSearchForm",
+            "roles": [
+              "everyone"
+            ],
+            "attributes": {
+              "target-data": "page-content",
+              "update-data": "true"
+            }
+          },
+          {
+            "label": "Ricerca fascicoli",
+            "icon": "glyphicon-search",
+            "tooltip": "Ricerca fascicoli",
+            "url": "/AppDoc/anagSearchForm",
+            "roles": [
+              "everyone"
+            ],
+            "attributes": {
+              "target-data": "page-content",
+              "update-data": "true"
+            }
+          },
+          {
+            "label": "Ultimi modificati",
+            "icon": "glyphicon-th-list",
+            "tooltip": "Ultimi modificati",
+            "url": "/AppDoc/select?sort=modified_on%20desc&fq=type:documento&title=label.menusx.lastModified",
+            "roles": [
+              "everyone"
+            ],
+            "attributes": {
+              "target-data": "page-content",
+              "update-data": "true"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Documenti con attivita",
+        "url": "",
+        "tooltip": "Attività",
+        "roles": [
+          "everyone"
+        ],
+        "menuItems": [
+          {
+            "label": "Documenti in entrata",
+            "icon": "glyphicon-check",
+            "tooltip": "Documenti in entrata",
+            "url": "/AppDoc/doc/taskList?sort=modified_on%20desc&title=label.taskListIngresso",
+            "roles": [
+              "everyone"
+            ],
+            "attributes": {
+              "target-data": "page-content",
+              "update-data": "true"
+            },
+            "otherHtml": "<span id=\"countPotentialActivity\" class=\"badge badge-notify\" hidden=\"\" style=\"display: none;\">&nbsp;0</span>"
+          },
+          {
+            "label": "Documenti in carico",
+            "icon": "glyphicon-check",
+            "tooltip": "Documenti in carico",
+            "url": "/AppDoc/doc/taskAssigned?sort=modified_on%20desc&title=label.taskListIncarico",
+            "roles": [
+              "everyone"
+            ],
+            "attributes": {
+              "target-data": "page-content",
+              "update-data": "true"
+            },
+            "otherHtml": "<span id=\"countActivity\" class=\"badge badge-notify\" hidden=\"\" style=\"display: none;\">&nbsp;0</span>"
+          },
+          {
+            "label": "Documenti monitorati",
+            "icon": "glyphicon-check",
+            "tooltip": "Documenti monitorati",
+            "url": "/AppDoc/doc/taskStakeHolder?sort=modified_on%20desc&title=label.taskListStakeholder",
+            "roles": [
+              "everyone"
+            ],
+            "attributes": {
+              "target-data": "page-content",
+              "update-data": "true"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Attività",
+        "url": "#",
+        "tooltip": "Attività",
+        "roles": [
+          "everyone"
+        ],
+        "menuItems": [
+          {
+            "label": "Attività in ingresso",
+            "icon": "glyphicon-share",
+            "tooltip": "Attività in ingresso",
+            "url": "/AppDoc/taskList",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Attività in carico",
+            "icon": "glyphicon-check",
+            "tooltip": "Attività in carico",
+            "url": "/AppDoc/taskAssigned",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Task in scadenza",
+            "icon": "glyphicon-bell",
+            "tooltip": "Task in scadenza",
+            "url": "/AppDoc/callTaskNotitications",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Attività di firma",
+            "icon": "glyphicon-pencil",
+            "tooltip": "Attività di firma",
+            "url": "/AppDoc/getTaskFirmaRemotaByUser",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Messaggi",
+            "icon": "glyphicon-envelope",
+            "tooltip": "Messaggi",
+            "url": "/AppDoc/viewListMessages",
+            "roles": [
+              "everyone"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Processi",
+        "url": "#",
+        "tooltip": "Gestione processi",
+        "roles": [
+          "everyone"
+        ],
+        "menuItems": [
+          {
+            "label": "Processi menù",
+            "icon": "glyphicon-user",
+            "tooltip": "Processi menù",
+            "url": "/AppDoc/viewMenuProcess",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Ricerca Instanza",
+            "icon": "glyphicon-search",
+            "tooltip": "Ricerca Instanza",
+            "url": "/AppDoc/searchProcess",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Cerca preferiti",
+            "icon": "glyphicon-star",
+            "tooltip": "Cerca preferiti",
+            "url": "/AppDoc/searchPreferredProcesses",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Esporta",
+            "icon": "glyphicon-export",
+            "tooltip": "Esporta",
+            "url": "/AppDoc/exportData",
+            "roles": [
+              "everyone"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Gestione",
+        "url": "#",
+        "tooltip": "Gestione",
+        "roles": [
+          "everyone"
+        ],
+        "menuItems": [
+          {
+            "label": "Db Navigator",
+            "icon": "glyphicon-share",
+            "tooltip": "Db Navigator",
+            "url": "/AppDoc/dbNavigator",
+            "roles": [
+              "everyone"
+            ],
+            "buttons": [
+              {
+                "icon": "",
+                "tooltip": "",
+                "url": "",
+                "roles": []
+              }
+            ]
+          },
+          {
+            "label": "Processi",
+            "icon": "glyphicon-transfer blue",
+            "tooltip": "Processi",
+            "url": "/AppDoc/processList",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Code Dlq",
+            "icon": "glyphicon-align-justify blue",
+            "tooltip": "Code Dlq",
+            "url": "/AppDoc/listaCodeDlq",
+            "roles": [
+              "everyone"
+            ]
+          },
+          {
+            "label": "Gruppi di lavoro",
+            "icon": "glyphicon-th-list",
+            "tooltip": "Gruppi di lavoro",
+            "url": "/AppDoc/workgroupForm",
+            "roles": [
+              "everyone"
+            ],
+            "attributes": {
+              "target-data": "page-content",
+              "update-data": "true"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

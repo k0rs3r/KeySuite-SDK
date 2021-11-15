@@ -1,0 +1,109 @@
+{
+	"logo":"/AppDoc/images/KeySuite-LOGO.png",
+	"altTitle":"Anm - Agenzia Napoletana per la mobilita'",
+	"menuItems":[
+				{
+					"icon":"",
+					"link":"",
+					"title":"",
+					"background-color":"",
+					"textColor":"",
+					"roles":["everyone","administrator"],
+					"appName":"1"
+				},{
+					"icon":"glyphicon-file margin-right-5px",
+					"link":"/AppDoc?change_app=AppDoc",
+					"title":"Documentale",
+					"background-color":"",
+					"textColor":"",
+					"roles":["everyone"],
+					"appName":"AppDoc"
+				},
+				{
+					"icon":"glyphicon-transfer margin-right-5px",
+					"link":"/AppDoc?change_app=Protocollo",
+					"title":"Protocollo",
+					"background-color":"",
+					"textColor":"",
+					"roles":["everyone"],
+					"appName":"Protocollo",
+					"defaultAppForContext":"true"
+				},
+				{
+					"icon":"fticon-aoo margin-right-5px",
+					"link":"/AppDoc?change_app=RMA",
+					"title":"Risk Management",
+					"background-color":"",
+					"textColor":"",
+					"roles":["RMA","SYS_ADMINS"],
+					"appName":"RMA"
+				},
+				{
+					"icon":"glyphicon-tasks margin-right-5px",
+					"link":"/AppBPM?change_app=AppBPM",
+					"title":"Scrivania",
+					"background-color":"",
+					"textColor":"",
+					"roles":["everyone"],
+					"appName":"AppBPM"
+				},
+				{
+					"icon":"glyphicon-search margin-right-5px",
+					"link":"/solr/?change_app=solr",
+					"title":"Solr",
+					"background-color":"",
+					"textColor":"",
+					"roles":["Amministratori"],
+					"appName":"solr",
+					"targetUri":"http://localhost:8983/solr",
+					"revriteHeader":{
+						"KS_USER":"KS_USER",
+						"KS_AOO":"KS_AOO",
+						"KS_ENTE":"KS_ENTE",
+						"KS_ROLES":"KS_ROLES"
+					}
+				},
+				{
+					"icon":"glyphicon-list-alt margin-right-5px",
+					"link":"/docer/?change_app=docer",
+					"title":"Docer",
+					"background-color":"",
+					"textColor":"",
+					"roles":["Amministratori"],
+					"appName":"docer",
+					"targetUri":"http://localhost:8080/docer"
+				},
+				{
+					"icon":"glyphicon-random margin-right-5px",
+					"link":"/FlowDesigner/?change_app=FlowDesigner",
+					"title":"FlowDesigner",
+					"background-color":"",
+					"textColor":"",
+					"roles":["Amministratori"],
+					"appName":"FlowDesigner",
+					"targetUri":"http://192.168.0.12:8080/FlowDesigner",
+					"revriteHeader":{
+						"KS_USER":"SSO_USER_DESIGNER",
+						"KS_AOO":"AOO_HEADER",
+						"KS_ENTE":"ENTE_HEADER"
+					}
+
+				},{
+					"icon":"glyphicon-file margin-right-5px",
+					"link":"/?change_app=keysuite_it",
+					"title":"Info",
+					"background-color":"",
+					"textColor":"",
+					"roles":["everyone"],
+					"appName":"keysuite_it",
+					"targetUri":"http://www.keysuite.it",
+					"revriteHeader":{
+						"KS_USER":"SSO_USER_DESIGNER",
+						"KS_AOO":"AOO_HEADER",
+						"KS_ENTE":"ENTE_HEADER"
+					}
+
+				}
+
+			]
+		}

@@ -1,0 +1,26 @@
+<div class="container ricerca-full-text" style="margin-top: 55px;
+    height: 35px;
+    position: absolute;
+    z-index: 1001;
+    padding-left: 20px;
+    width: 15%;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="min-height: 30px; margin-bottom:0px;">
+     <form action="/AppDoc/select" id="searchFullTextIdentifierForm" method="GET" enctype="multipart/form-data" class="form-inline my-2 my-lg-0" ;">
+      <div class="row">
+      <div class="col-md-12">
+      <input class="form-control auto-completion glyphicon-search" replace="all" theme="gsearch" data-sede="DOCAREA" data-source="documento" type="text" id="QUERY" name="q" hintText="Ricerca nel documentale" style="width: 100%">
+
+<button class="btn btn-outline-success my-2 my-sm-0 btn-primary" type="submit">Cerca</button>
+</div>
+</div>
+    </form>
+  </nav>
+</div>
+<script type="text/javascript">
+$( document ).ready(function() {
+  $(".token-input-list-gsearch").css("width","70%");  
+  $(".token-input-list-gsearch").css("float","left");  
+  $(".token-input-list-gsearch").css("margin-right","5px");  
+  $(".ricerca-full-text #searchFullTextIdentifierForm #QUERY").attr("data-sede", sede);
+});
+</script>

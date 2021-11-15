@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+
+    <transformer name="corrispondenti" class="${expressionaugmenter:org.apache.solr.response.transform.ValueAugmenterFactory}" >
+        <str name="expr">javascript:
+            <![CDATA[
+
+		var xMITTENTI=null;
+		var xDESTINATARI=null;
+
+		if (TIPO_PROTOCOLLAZIONE=='E')
+			xMITTENTI = MITTENTI;
+
+		if (TIPO_PROTOCOLLAZIONE=='U')
+			xDESTINATARI = DESTINATARI;
+
+		//if (TIPO_PROTOCOLLAZIONE=='I')
+		//	xDESTINATARI = DESTINATARI;
+
+
+		var result = [];
+
+		if (xMITTENTI){
+			var xml = xMITTENTI;
+
+			xml = xml.replace(/&gt;/g,'>');
+			xml = xml.replace(/&lt;/g,'<');
+
+			var xpath = javax.xml.xpath.XPathFactory.newInstance().newXPath();
+
+			source = new org.xml.sax.InputSource(new java.io.StringReader(xml));
+			list = xpath.evaluate("//Mittente", source,javax.xml.xpath.XPathConstants.NODESET);
+
+			for( x=0; x<list.getLength(); x++ ){
+
+				name = xpath.evaluate("./*/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+				aoo = xpath.evaluate("/AOO/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+				ufficio = xpath.evaluate("//UnitaOrganizzativa/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+				persona = xpath.evaluate("//UnitaOrganizzativa/Persona/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+
+				if (ufficio)
+					name += "\n" + ufficio;
+				else if (aoo)
+					name += "\n" + aoo;
+
+				if (persona)
+					name += "\n" + persona;
+
+				if ( (x+1) <list.getLength())
+					name += "\n";
+
+				result.push(name);
+
+			}
+
+
+
+			res = result.join('\n');
+		}
+
+		if (xDESTINATARI){
+			var xml = xDESTINATARI;
+
+			xml = xml.replace(/&gt;/g,'>');
+			xml = xml.replace(/&lt;/g,'<');
+
+			var xpath = javax.xml.xpath.XPathFactory.newInstance().newXPath();
+
+			source = new org.xml.sax.InputSource(new java.io.StringReader(xml));
+			list = xpath.evaluate("//Destinatario", source,javax.xml.xpath.XPathConstants.NODESET);
+
+
+
+			for( x=0; x<list.getLength(); x++ ){
+
+				name = xpath.evaluate("./*/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+				aoo = xpath.evaluate("/AOO/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+				ufficio = xpath.evaluate("//UnitaOrganizzativa/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+				persona = xpath.evaluate("//UnitaOrganizzativa/Persona/Denominazione/text()", list.item(x),javax.xml.xpath.XPathConstants.STRING);
+
+				if (aoo)
+					name += "\n" + aoo;
+
+				if (ufficio)
+					name += "\n" + ufficio;
+
+				if (persona)
+					name += "\n" + persona;
+
+				if ( (x+1) <list.getLength())
+					name += "\n";
+
+				result.push(name);
+
+			}
+		}
+		result.join('\n');
+
+		]]>
+        </str>
+    </transformer>
+
+</config>

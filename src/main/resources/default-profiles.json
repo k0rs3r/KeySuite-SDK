@@ -1,0 +1,44 @@
+{
+    "defaultProfile" : "default",
+    "profiles" : {
+        "default": {
+            "maxResults": 50,
+
+            "buildContext": "classpath:/mvel/default/build-context.mvel",
+            "buildPath": "classpath:/mvel/default/build-path.mvel",
+            "cacheCustomization": "classpath:/mvel/default/cache-customization.mvel",
+
+
+            "shift" : "",
+            "search" : "default"
+        }
+    },
+    "searches": {
+        "default" : {
+            "PROFILE": {
+                "NAV": [ "nav-aoo-search"],
+                "CONTENT": ["nav-aoo-search"]
+            },
+            "AOO": {
+                "NAV": ["nav-titolario-search-default", "nav-folders-container"],
+                "CONTENT": ["nav-titolario-search-default", "nav-folders-container"]
+            },
+            "TITOLARIO": {
+                "NAV": ["nav-sub-titolario-search-default", "nav-anno-fascicolo-search"],
+                "CONTENT": ["nav-sub-titolario-search-default", "nav-anno-fascicolo-search"]
+            },
+            "ANNO_FASCICOLO": {
+                "NAV": ["nav-fascicolo-search"],
+                "CONTENT": ["nav-fascicolo-search"]
+            },
+            "FASCICOLO": {
+                "NAV": ["nav-sub-fascicolo-search"],
+                "CONTENT": ["nav-sub-fascicolo-search", "content-document-search"]
+            },
+            "FOLDER": {
+                "NAV": ["nav-folder-search"],
+                "CONTENT": ["content-folder-search", "nav-folder-search"]
+            }
+        }
+    }
+}

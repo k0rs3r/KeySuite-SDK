@@ -1,0 +1,70 @@
+import java.util.regex.Pattern;
+import com.google.common.base.Splitter;
+import it.kdm.doctoolkit.model.*;
+import it.kdm.doctoolkit.model.path.*;
+import it.kdm.doctoolkit.utils.Utils;
+
+annoRegex = Pattern.compile("\\d{4}");
+foldersRegex = Pattern.compile("^Cartelle|Temporanei$");
+
+foundAnno = false;
+foundFolders = false;
+
+root = "\\" + sede + "\\" + ente;
+
+context = ["ente" : ente];
+
+comps = Splitter.on('\\').omitEmptyStrings().splitToList(path);
+
+context.PATH = root;
+
+for (int i=0; i<comps.size(); i++) {
+  comp = comps[i];
+  if (i == 0) {
+    context.tag = Profile.TYPE.toUpperCase();
+    context.type = Profile.TYPE;
+  } else if (i == 1) {
+    context.tag = AOO.TYPE.toUpperCase();
+    context.type = AOO.TYPE;
+    context.PATH += '\\' + comp;
+  } else {
+      docnumMatcher = Utils.DOCNUM_OPEN_REGEX.matcher(comp);
+      if (docnumMatcher.matches()) {
+          context.tag = Documento.TYPE.toUpperCase();
+          context.type = Documento.TYPE;
+          context.DOCNUM = docnumMatcher.group("docnum");
+      } else if (foundAnno) {
+        context.tag = Fascicolo.TYPE.toUpperCase();
+        context.type = Fascicolo.TYPE;
+        context.PATH += '\\' + comp;
+      } else if (foundFolders) {
+        context.PATH += '\\' + comp;
+        context.tag  = Cartella.TYPE.toUpperCase();
+        context.type = Cartella.TYPE;
+      } else {
+          matcher = annoRegex.matcher(comp);
+          if(matcher.matches()) {
+            foundAnno = true;
+            context.tag = "ANNO_FASCICOLO";
+            context.type = "ANNO_FASCICOLO";
+            context.ANNO_FASCICOLO = comp;
+            //context.PATH += '\\' + comp;
+          } else {
+            matcher = foldersRegex.matcher(comp);
+            if (matcher.matches()) {
+              context.tag  = Cartella.TYPE.toUpperCase();
+              context.type = Cartella.TYPE;
+              context.PATH += '\\' + comps[i];
+              foundFolders = true;
+            } else {
+              // Titolario
+              context.tag = Titolario.TYPE.toUpperCase();
+              context.type = Titolario.TYPE;
+              context.PATH += '\\' + comp;
+            }
+          }
+      }
+  }
+}
+
+return context;

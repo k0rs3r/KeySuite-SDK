@@ -1,0 +1,151 @@
+{
+  "system" : {
+    "filesystem" : {
+      "tmp" : "C:\\Users\\Paolo_2\bpm-config/upload"
+    },
+    "endPoints" : {
+      "location" : "DOCAREA",
+      "collection" : "DOCER",
+      "zookeeper" : "localhost:9983",
+      "docer" : "http://localhost:8080",
+      "frontend" : "http://localhost:8092",
+      "bpm-server" : "http://localhost:8092"
+    },
+    "mail" : {
+      "from" : "info@keysuite.it",
+      "password" : "",
+      "address" : "smtp.gmail.com",
+      "protocol" : "ssl",
+      "port" : "465"
+    },
+    "authentication" : {
+      "secret" : "SECRET",
+      "tipo" : "standard",
+      "ldapUrl" : "",
+      "ip-filter" : "127.0.0.1",
+      "failedUrl" : "",
+      "logoutUrl" : "",
+      "utente" : "",
+      "aoo" : "",
+      "default-aoo" : ""
+    },
+    "scanner" : {
+      "license" : "f0068NQAAAK0jW+tuBfrsYvF870lKTzCAH1YE+KlP137jyZsWUI79+skl0buuupibeSb9GKelvmSjwcAA/arqOgiqVyKPX/0="
+    },
+    "jms" : {
+      "codaBPMprotocollo" : "docer-bpm-",
+      "skip" : "testval1;testval2;textval3",
+      "accept" : "fascicolaById;protocollaById;registraById;",
+      "docer-in" : "docer_bpm_event_queue",
+      "docer-in-dql" : "dlqMail",
+      "url" : "tcp://localhost:61616",
+      "username" : "admin",
+      "password" : "admin"
+    },
+    "database" : {
+      "jndi" : "java:jboss/datasources/jbpmDS6",
+      "backup-folder" : "C:\\Users\\Paolo_2\bpm-config/db_backup",
+      "driver" : "oracle.jdbc.OracleDriver",
+      "url" : "jdbc:oracle:thin:@localhost:1521:INSTANCE",
+      "username" : "docersystem",
+      "password" : "docersystem"
+    },
+    "html2pdf" : {
+      "options" : "--page-size A4 -L 10 -R 10 -T 30 -B 15 --dpi 300",
+      "cmd" : "/usr/local/bin/wkhtmltopdf -T 20mm"
+    },
+    "quartz" : {
+      "threadCount" : "25",
+      "threadPriority" : "5",
+      "misfireThreshold" : "60000"
+    },
+    "firma-aruba" : {
+      "serviceUrl" : "https://arss.demo.firma-automatica.it/ArubaSignService/ArubaSignService",
+      "HSM" : "COSIGNA",
+      "otpAuth" : "demoprod",
+      "certID" : "AS0"
+    }
+  },
+  "bpm" : {
+    "assegnazione" : {
+      "processId" : "ANM_AvvioSmistamenti3.1",
+      "htName" : "HT Smistamento",
+      "annullamento" : "Annullamento Protocollazione1.0"
+    },
+    "protocollazione" : {
+      "inoltro" : "ANM_InoltroAProtocollo2.0",
+      "entrata" : "ANM_ProtocollazioneEntrata2.2",
+      "uscita" : "ANM_ProtocollazioneInternaUscita2.2",
+      "interna" : "ANM_ProtocollazioneInternaUscita2.2"
+    }
+  },
+  "portale" : {
+    "config" : {
+      "routing" : "routing1.0",
+      "baseurl" : "http://192.168.0.12:8080",
+      "visura-taskName" : "AC",
+      "people-epr" : "http://portale:8080/BEService/services/setEventService?wsdl"
+    },
+    "jms" : {
+      "user" : "admin",
+      "password" : "pianetaportale.2015",
+      "url" : "tcp://192.168.0.12:61616",
+      "messaggi-in" : "portalChatIn",
+      "messaggi-out" : "portalChatOut",
+      "messaggi-out-dlq" : "portal_chat_out_dead_messages",
+      "messaggi-in-dlq" : "dlqPortalChatIn",
+      "in" : "portal_queue",
+      "out" : "keysuite_queue",
+      "in-dlq" : "dlqPortal_queue",
+      "out-dlq" : "dead_messages"
+    }
+  },
+  "sicurezza" : {
+    "regole" : {
+      "read" : "1",
+      "download" : "2",
+      "cronologia" : "1",
+      "retrieveACL" : "4",
+      "readVersion" : "8",
+      "lock" : "128",
+      "unlock" : "4096",
+      "rename" : "1024",
+      "move" : "2048",
+      "listaVersioni" : "16",
+      "openInEdit" : "256",
+      "edit" : "64",
+      "creaDocumento" : "32",
+      "creaFascicolo" : "16384|32768",
+      "creaTitolario" : "16384|32768",
+      "creaFolder" : "16384|32768",
+      "creaVersioni" : "512",
+      "elimina" : "8192",
+      "sicurezza" : "16384",
+      "protocolla" : "@(.*)",
+      "viewRegistroGiornaliero" : "@(PIM|RESP_PROT)",
+      "assegna" : "NUM_PG",
+      "editAssegnazioni" : "NUM_PG",
+      "modificaProfilo" : "#edit",
+      "modificaCorrelati" : "#edit",
+      "classificaDocumento" : "#edit",
+      "fascicolaDocumento" : "CLASSIFICA",
+      "posta" : "@(.*)",
+      "amministrazione" : "@SYS_ADMINS",
+      "registra-FATTURE" : "@(FATTURE_REGISTRAZ|PROTOCOLLATORI)",
+      "registra-REGISTRO_1" : "@(FATTURE_REGISTRAZ|PROTOCOLLATORI|PROTOCOLLATORE|GACO)",
+      "registra-DETERMINA_AU" : "@(DETERMINA_AU_REGISTRAZ|PROTOCOLLATORI)",
+      "registra-DETERMINA_DIRIGENZIALI" : "@(DETERMINA_DIRIGENZIALI_REGISTRAZ|PROTOCOLLATORI)",
+      "registra-ORDINE_SERVIZIO_ORGANIZZATIVO" : "@(ORDINE_SERVIZIO_ORGANIZZATIVO_REGISTRAZ|PROTOCOLLATORI)",
+      "registra-ORDINE_SERVIZIO" : "@(ORDINE_SERVIZIO_REGISTRAZ|PROTOCOLLATORI)",
+      "registra-COMUNICATO" : "@(COMUNICATO_REGISTRAZ|PROTOCOLLATORI)",
+      "registra-COMUNICATO_AL_PERSONALE" : "@(COMUNICATO_AL_PERSONALE_REGISTRAZ|PROTOCOLLATORI)",
+      "registra-ACCORDO_SINDACALE" : "@(ACCORDO_SINDACALE_REGISTRAZ|PROTOCOLLATORI)",
+      "registra" : "@(.*_REGISTRAZ|PROTOCOLLATORI|GACO)",
+      "createudversion" : "#edit STATO_ARCHIVISTICO=(0|1)",
+      "stampigliatura" : "STATO_ARCHIVISTICO=(3|4|5|6) DOCNAME=^(?!(.*eml$|.*ppp$)).*$",
+      "attivita" : "@(.*)",
+      "modificaAnagrafiche" : "@(.*)",
+      "inviaDocumento" : "#edit"
+    }
+  }
+}

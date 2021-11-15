@@ -1,0 +1,13 @@
+<style>
+.nav > li > a {
+    text-decoration: none;
+    background: unset;
+    border-bottom: none!important;
+    font-weight: normal!important;
+}
+#wrapper{
+	margin-top:35px!important;
+	margin-bottom: 35px!important;
+	padding-left: unset!important;
+}
+</style>
