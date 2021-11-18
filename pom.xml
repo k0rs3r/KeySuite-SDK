@@ -317,6 +317,10 @@
                     <artifactId>guava</artifactId>
                     <groupId>com.google.guava</groupId>
                 </exclusion>
+		<exclusion>
+                    <artifactId>FontVerter</artifactId>
+                    <groupId>net.mabboud.fontverter</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
 
